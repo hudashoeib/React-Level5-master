@@ -48,10 +48,6 @@ const Cart = () => {
   // @ts-ignore
   const { selectedProducts } = useSelector((state) => state.cart);
   console.log(selectedProducts);
-  const subTotal = selectedProducts.reduce(
-    (sum, item) => sum + Number(item.price) * item.quantity,
-    0,
-  );
   return (
     <Box className="parent-of-cards">
       <Stack
@@ -73,7 +69,6 @@ const Cart = () => {
         >
           {/* Cards Section */}
           {selectedProducts.map((item, index) => {
-            // ...existing code...
             return (
               <DemoPaper key={index}>
                 <Stack
@@ -91,7 +86,7 @@ const Cart = () => {
                     color="primary"
                     fontSize={{ xs: "0.5rem", sm: "1rem" }}
                   >
-                    {item.price * item.quantity}$
+                    {item.price}$
                   </Typography>
                   {/* Counter  */}
                   <Stack
@@ -150,46 +145,61 @@ const Cart = () => {
         {/* Cards Section End */}
 
         {/* CehckOut Box */}
-        {subTotal === 0 ? (
-          <Paper>
-            <Typography
-              variant="body1"
-              color="primary"
-              textAlign={"center"}
-              sx={{ p: 2 }}
-            >
-              Your cart is empty. Continue shopping to add items.
-            </Typography>
-          </Paper>
-        ) : (
-          <Paper
-            className="container-of-checkout "
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "0.7rem",
-              gap: 2,
-              width: {
-                xs: "11rem",
-                sm: "15rem",
-                md: "20rem",
-                lg: "25rem",
-                xl: "30rem",
-              },
-              marginBottom: "2rem !important",
-            }}
+        <Paper
+          className="container-of-checkout "
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0.7rem",
+            gap: 2,
+            width: {
+              xs: "11rem",
+              sm: "15rem",
+              md: "20rem",
+              lg: "25rem",
+              xl: "30rem",
+            },
+            marginBottom: "2rem !important",
+          }}
+        >
+          {" "}
+          <Typography
+            sx={{ fontSize: { xs: "1rem", md: "1.8rem" }, lineHeight: 1 }}
+            color="primary"
+            textAlign={"center"}
           >
             {" "}
-            <Typography
-              sx={{ fontSize: { xs: "1rem", md: "1.8rem" }, lineHeight: 1 }}
-              color="primary"
-              textAlign={"center"}
+            Check Out{" "}
+          </Typography>
+          <Divider
+            sx={{
+              my: 2,
+              width: "100%",
+              bgcolor: "primary.main",
+              height: "2px",
+            }}
+          />
+          <Stack
+            direction={"column"}
+            spacing={2}
+            alignItems={"center"}
+            sx={{ width: "100%" }}
+          >
+            <Stack
+              direction={"row"}
+              justifyContent={"space-between"}
+              sx={{ width: "90%" }}
+              className="total-price-container"
             >
-              {" "}
-              Check Out{" "}
-            </Typography>
+              <Typography variant="body2" color="primary">
+                Total Price:
+              </Typography>
+              <Typography variant="body2" color="primary">
+                $
+              </Typography>
+            </Stack>
             <Divider
               sx={{
                 my: 2,
@@ -198,41 +208,12 @@ const Cart = () => {
                 height: "2px",
               }}
             />
-            <Stack
-              direction={"column"}
-              spacing={2}
-              alignItems={"center"}
-              sx={{ width: "100%" }}
-            >
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                sx={{ width: "90%" }}
-                className="total-price-container"
-              >
-                <Typography variant="body2" color="primary">
-                  Total Price:
-                </Typography>
-                <Typography variant="body2" color="primary">
-                  {subTotal}$
-                </Typography>
-              </Stack>
-              <Divider
-                sx={{
-                  my: 2,
-                  width: "100%",
-                  bgcolor: "primary.main",
-                  height: "2px",
-                }}
-              />
 
-              <Button variant="contained" color="primary">
-                Check Out
-              </Button>
-            </Stack>
-          </Paper>
-        )}
-
+            <Button variant="contained" color="primary">
+              Check Out
+            </Button>
+          </Stack>
+        </Paper>
         {/* CehckOut Box End */}
       </Stack>
     </Box>

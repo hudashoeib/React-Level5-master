@@ -47,10 +47,10 @@ const Home = () => {
     // @ts-ignore
     (state) => state.cart,
   );
-  const productQuantity = (item) => {
-    const productById = selectedProducts.find((itemUser) => {
-      return itemUser.id === item.id;
-    });
+  const productQuantity = (itemAPI) => {
+    const productById = selectedProducts.find(
+      (itemUser) => itemUser.id === itemAPI.id,
+    );
     return productById.quantity;
   };
 
