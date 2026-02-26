@@ -138,7 +138,7 @@ const Cart = () => {
                     </Typography>
                     <Avatar
                       alt={item.productName}
-                      src={item.imageLink}
+                      src={item.imageLink[0]}
                       sx={{ width: 56, height: 56 }}
                     />
                   </Stack>

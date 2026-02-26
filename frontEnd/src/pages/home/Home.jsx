@@ -24,6 +24,7 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
+import { useNavigate } from "react-router-dom";
 
 // const recieveDataFromApi = [
 
@@ -38,6 +39,7 @@ import Badge from "@mui/material/Badge";
 // ];
 
 const Home = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const dispatch = useDispatch();
 
@@ -99,9 +101,10 @@ const Home = () => {
                 <CardMedia
                   component="img"
                   height="194"
-                  image={item.imageLink}
+                  image={item.imageLink[0]}
                   alt={item.productName}
                   sx={{ objectFit: "contain", p: 1 }}
+                  onClick={() => navigate(`/product-details/${item.id}`)}
                 />
                 <CardContent>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
