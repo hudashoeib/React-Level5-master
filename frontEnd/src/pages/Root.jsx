@@ -4,25 +4,19 @@ import Appbar from "MUI-components/Appbar";
 import Drawerr from "MUI-components/Drawer";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { grey } from "@mui/material/colors";
+
 import getDesignTokens from "styles/MyTheme";
 
 const drawerWidth = 240;
-
 
 const Root = () => {
   const [mode, setmyMOde] = useState(
     localStorage.getItem("currentMode") === null
       ? "dark"
       : localStorage.getItem("currentMode") === "light"
-      ? "light"
-      : "dark"
+        ? "light"
+        : "dark",
   );
-
-
- 
-
-
 
   const [noneORblock, setnoneORblock] = useState("none");
   const [drawerType, setdrawerType] = useState("permanent");
@@ -36,7 +30,6 @@ const Root = () => {
     setdrawerType("permanent");
     setnoneORblock("none");
   };
-
 
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
