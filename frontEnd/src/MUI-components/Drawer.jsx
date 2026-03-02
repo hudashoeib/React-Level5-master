@@ -40,13 +40,18 @@ const Drawerr = ({
   // Quantity of Selected products
   // @ts-ignore
   const { selectedProducts } = useSelector((state) => state.cart);
+  // Calculate total quantity of all items in the cart
+  const totalCartItems = selectedProducts.reduce(
+    (sum, item) => sum + (item.quantity || 0),
+    0,
+  );
 
   const myList = [
     { text: "Home", icon: <Home />, path: "/" },
     {
       text: "Cart",
       icon: (
-        <StyledBadge badgeContent={selectedProducts.length} color="secondary">
+        <StyledBadge badgeContent={totalCartItems} color="secondary">
           <ShoppingCart />
         </StyledBadge>
       ),

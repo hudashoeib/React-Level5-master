@@ -95,17 +95,36 @@ const Home = () => {
                     boxShadow: 6,
                     transform: "scale(1.05)",
                     transition: "0.5s",
+                    borderRadius: "20px",
                   },
                 }}
               >
                 <CardMedia
-                  component="img"
-                  height="194"
-                  image={item.imageLink[0]}
-                  alt={item.productName}
-                  sx={{ objectFit: "contain", p: 1 }}
+                  component="div"
+                  sx={{
+                    height: 194,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: 1,
+
+                    overflow: "hidden",
+                  }}
                   onClick={() => navigate(`/product-details/${item.id}`)}
-                />
+                >
+                  <img
+                    src={item.imageLink[0]}
+                    alt={item.productName}
+                    style={{
+                      maxHeight: "100%",
+                      maxWidth: "100%",
+                      objectFit: "contain",
+                      borderRadius: "10px",
+                      display: "block",
+                      margin: "auto",
+                    }}
+                  />
+                </CardMedia>
                 <CardContent>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
                     {item.description}

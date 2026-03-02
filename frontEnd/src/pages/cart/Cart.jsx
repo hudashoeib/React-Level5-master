@@ -137,10 +137,23 @@ const Cart = () => {
                       {item.productName}
                     </Typography>
                     <Avatar
-                      alt={item.productName}
-                      src={item.imageLink[0]}
-                      sx={{ width: 56, height: 56 }}
-                    />
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <img
+                        src={item.imageLink[0]}
+                        alt={item.productName}
+                        style={{
+                          width: "85%",
+                          height: "85%",
+                          objectFit: "cover",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </Avatar>
                   </Stack>
                 </Stack>
               </DemoPaper>

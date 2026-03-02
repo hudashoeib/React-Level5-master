@@ -1,4 +1,3 @@
- 
 import {
   Toolbar,
   AppBar,
@@ -36,14 +35,17 @@ const Appbar = ({ drawerWidth, showDrawer }) => {
           color="inherit"
           href="/"
         >
-        Online store
+          Shop Flu
         </Link>
 
         <Typography mr={2} variant="body1" color="inherit">
-          Ali Hassan
+          Huda Shoeib
         </Typography>
 
-        <Avatar alt="Remy Sharp" src="./imges/Ali Hassan.JPG" />
+        <Avatar
+          alt="Huda Shoeib"
+          src="https://res.cloudinary.com/dwognrnqo/image/upload/v1772438051/huda2_xvjflb.png"
+        />
       </Toolbar>
     </AppBar>
   );
