@@ -75,7 +75,7 @@ const Home = () => {
     return (
       <Box className="parent-of-cards">
         <Box
-          className="container-of-card container border"
+          className="container-of-card container "
           sx={{
             display: "flex",
             flexWrap: "wrap",

@@ -57,7 +57,7 @@ const Cart = () => {
       <Stack
         direction="column"
         spacing={8}
-        className="container-of-cards-checkout container border"
+        className="container-of-cards-checkout container "
         justifyContent={"center"}
         alignItems={"center"}
         alignContent={"center"}
